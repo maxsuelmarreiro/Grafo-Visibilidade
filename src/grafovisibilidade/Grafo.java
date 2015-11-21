@@ -114,7 +114,7 @@ public class Grafo {
                 addAresta.setV1(vrc1);
                 addAresta.setV2(vrc2);
                 //calcular tamanho da aresta
-                double peso = (Math.sqrt(Math.pow(vrc2.getX() - vrc1.getX(), (2))) * (Math.pow(vrc2.getY() - vrc1.getY(), (2))));
+                double peso = Math.sqrt((Math.pow(vrc2.getX() - vrc1.getX(), (2))) + (Math.pow(vrc2.getY() - vrc1.getY(), (2))));
                 addAresta.setPeso(peso);
                 arestas.add(addAresta);
                 return true;
