@@ -114,7 +114,7 @@ public class Grafo {
                 addAresta.setV1(vrc1);
                 addAresta.setV2(vrc2);
                 //calcular tamanho da aresta
-                double peso = Math.sqrt((Math.pow(vrc2.getX() - vrc1.getX(), (2))) + (Math.pow(vrc2.getY() - vrc1.getY(), (2))));
+                double peso = Math.sqrt(Math.pow(vrc2.getX()-vrc1.getX(),2)+Math.pow(vrc2.getY()-vrc1.getY(),2));
                 addAresta.setPeso(peso);
                 arestas.add(addAresta);
                 return true;
@@ -216,7 +216,7 @@ public class Grafo {
             System.out.print(vertice.getId() + "(" + vertice.getX() + "," + vertice.getY() + ")" + "->");
 
             for (int i = 0; i < v.getAdjacente().size(); i++) {
-                System.out.print(v.getAdjacente().get(i).getId() + "(" + v.getAdjacente().get(i).getX() + "," + v.getAdjacente().get(i).getY() + ") - ");
+                System.out.print(v.getAdjacente().get(i).getId() + "(" + v.getAdjacente().get(i).getX() + "," + v.getAdjacente().get(i).getY() + ")[" + v.getAdjacente().get(i).getPeso() + "] - ");
             }
             return vertice;
         }).forEach((_item) -> {
@@ -232,7 +232,7 @@ public class Grafo {
                 matriz[i + 1][0] = Integer.toString(getVertices().get(i).getId());
             }
             for (int i = 0; i < getArestas().size(); i++) {
-                matriz[0][i + 1] = getArestas().get(i).getV1().getId() + "-" + getArestas().get(i).getV2().getId();
+                matriz[0][i + 1] = getArestas().get(i).getV1().getId() + "-" + getArestas().get(i).getV2().getId() + "[" + getArestas().get(i).getPeso() + "]";
             }
             for (int i = 0; i < getVertices().size(); i++) {
                 for (int j = 0; j < getArestas().size(); j++) {
